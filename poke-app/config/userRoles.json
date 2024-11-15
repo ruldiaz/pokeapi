@@ -1,0 +1,29 @@
+{
+   "roles": [
+     {
+       "role": "admin",
+       "name": "Administrador",
+       "preferences": {
+         "showAllFilters": true,
+         "preferredType": null
+       }
+     },
+     {
+       "role": "guest",
+       "name": "Invitado",
+       "preferences": {
+         "showAllFilters": false,
+         "preferredType": "fuego"
+       }
+     },
+     {
+       "role": "trainer",
+       "name": "Entrenador",
+       "preferences": {
+         "showAllFilters": true,
+         "preferredType": "agua"
+       }
+     }
+   ]
+ }
+ 

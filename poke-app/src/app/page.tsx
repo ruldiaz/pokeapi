@@ -3,10 +3,9 @@ import Link from "next/link";
 export default function Home(){
   return (
   <>
-    <h1>Home page</h1>  
-    <Link href="/blog">Blog</Link>
-    <Link href="/products">Products</Link>
-    <Link href="/pokemon">Pokemon</Link>
+    <h1>Welcome to Poke Api</h1>  
+    
+    <h2 style={{textAlign: "center"}}><Link href="/pokemon">Gotta Catch 'Em All</Link></h2>
   </>
     );
 }
