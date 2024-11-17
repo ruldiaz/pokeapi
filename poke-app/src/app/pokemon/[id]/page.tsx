@@ -6,7 +6,11 @@ import './PokemonDetailPage.css';
 interface PokemonDetails {
   name: string;
   sprites: {
-    front_default: string;
+    other: {
+      dream_world: {
+        front_default: string
+      }
+    }
   };
   height: number;
   weight: number;
@@ -32,7 +36,7 @@ const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
       <h1 className="pokemon-name">{pokemon.name}</h1>
       <img
         className="pokemon-image"
-        src={pokemon.sprites.front_default}
+        src={pokemon.sprites.other.dream_world.front_default}
         alt={pokemon.name}
       />
 

@@ -38,7 +38,7 @@ const PokemonPage = () => {
               return {
                 name: pokemon.name,
                 types: details.types.map((type: any) => type.type.name),
-                image: details.sprites.front_default,
+                image: details.sprites.other.dream_world.front_default,
               };
             } else {
               console.error('La URL del Pokémon no es válida:', pokemon);

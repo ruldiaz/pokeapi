@@ -1,5 +1,3 @@
-// src/app/components/PokemonList.tsx
-
 import React from 'react';
 import PokemonCard from './PokemonCard';
 
@@ -14,8 +12,18 @@ interface PokemonListProps {
 }
 
 const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
+  console.log(pokemonList);
+  
   return (
-    <div className="pokemon-list">
+    <div
+      className="pokemon-list"
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '1.5rem',
+        padding: '1rem',
+      }}
+    >
       {pokemonList.map((pokemon) => (
         <PokemonCard
           key={pokemon.name}

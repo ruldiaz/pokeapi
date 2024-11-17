@@ -45,8 +45,8 @@ h1 {
 }
 
 .pokemon-card img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
 }
 
@@ -64,10 +64,12 @@ h1 {
 /* Contenedor para la lista de Pokémon */
 .pokemon-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajuste del minmax */
-  gap: 16px;
-  justify-items: center; /* Asegura que las tarjetas estén centradas dentro de sus columnas */
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 24px; /* Espaciado entre tarjetas */
+  justify-items: center; /* Centra las tarjetas en sus columnas */
+  padding: 16px;
 }
+
 
 /* Estilos para el filtro */
 .filter-container {
@@ -90,16 +92,14 @@ h1 {
 
 /* Responsividad */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+  .pokemon-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila en pantallas más pequeñas */
+    gap: 16px;
   }
+}
 
-  .pokemon-card {
-    padding: 12px;
-  }
-
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
+@media (max-width: 480px) {
+  .pokemon-list {
+    grid-template-columns: 1fr; /* 1 tarjeta por fila en pantallas muy pequeñas */
   }
 }
