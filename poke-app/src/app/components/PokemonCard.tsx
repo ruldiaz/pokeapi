@@ -1,12 +1,10 @@
-// src/app/components/PokemonCard.tsx
-
 import React from 'react';
-import { useRouter } from 'next/navigation';
 
 interface PokemonCardProps {
   name: string;
   imageUrl: string;
   types: string[];
+  onClick: () => void; // Agregamos el evento de clic
 }
 
 // Colores asociados a cada tipo de Pokémon
@@ -31,20 +29,13 @@ const typeColors: { [key: string]: string } = {
   steel: '#B8B8D0',
 };
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ name, imageUrl, types }) => {
-  const router = useRouter();
-
-  // Función para manejar el clic y navegar a la página de detalles
-  const handleClick = () => {
-    router.push(`/pokemon/${name}`);
-  };
-
+const PokemonCard: React.FC<PokemonCardProps> = ({ name, imageUrl, types, onClick }) => {
   // Obtener el color basado en el primer tipo
   const backgroundColor = typeColors[types[0]?.toLowerCase()] || '#f0f0f0';
 
   return (
     <div
-      onClick={handleClick}
+      onClick={onClick} // Llamamos al evento de clic
       className="pokemon-card"
       style={{
         cursor: 'pointer',
@@ -52,9 +43,10 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, imageUrl, types }) => {
         padding: '1rem',
         borderRadius: '10px',
         color: '#fff',
+        textAlign: 'center',
       }}
     >
-      <img src={imageUrl} alt={name} style={{ width: '100%', borderRadius: '8px' }} />
+      <img src={imageUrl} alt={name} style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
       <h2>{name}</h2>
       <p>Tipos: {types.join(', ')}</p>
     </div>
