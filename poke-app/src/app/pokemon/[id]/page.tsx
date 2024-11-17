@@ -12,24 +12,30 @@ interface PokemonDetails {
   weight: number;
 }
 
-const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
-  // Construir la URL completa para obtener los detalles del Pokémon
-  const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${params.id}`;
+export const dynamic = "force-dynamic"; // Asegura que el renderizado es dinámico
 
-  // Obtener los detalles del Pokémon utilizando la URL completa
+const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
+  if (!params?.id) {
+    throw new Error("El parámetro 'id' no está disponible.");
+  }
+
+  const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${params.id}`;
   const pokemon: PokemonDetails = await getPokemonDetails(pokemonUrl);
 
-  // Normalización de altura y peso para las barras de progreso
-  const maxHeight = 20; // Altura máxima para referencia en la barra
-  const maxWeight = 1000; // Peso máximo para referencia en la barra
+  const maxHeight = 20; // Altura máxima para referencia
+  const maxWeight = 1000; // Peso máximo para referencia
   const heightPercentage = (pokemon.height / maxHeight) * 100;
   const weightPercentage = (pokemon.weight / maxWeight) * 100;
 
   return (
     <div className="pokemon-detail">
       <h1 className="pokemon-name">{pokemon.name}</h1>
-      <img className="pokemon-image" src={pokemon.sprites.front_default} alt={pokemon.name} />
-      
+      <img
+        className="pokemon-image"
+        src={pokemon.sprites.front_default}
+        alt={pokemon.name}
+      />
+
       <div className="pokemon-stats">
         <div className="stat">
           <p>Altura:</p>

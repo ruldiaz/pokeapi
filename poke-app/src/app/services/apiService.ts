@@ -21,7 +21,7 @@ export const getPokemonDetails = async (url: string) => {
       throw new Error('La URL proporcionada no es válida');
     }
     
-    console.log("Fetching details from URL:", url);  // Verifica la URL que se pasa
+    //console.log("Fetching details from URL:", url);  // Verifica la URL que se pasa
     
     const response = await axios.get(url);  // Realiza la solicitud HTTP
     return response.data;  // Devuelve los detalles del Pokémon

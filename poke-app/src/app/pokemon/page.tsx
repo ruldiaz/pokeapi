@@ -78,10 +78,9 @@ const PokemonPage = () => {
   };
 
   return (
-    <div>
-      <h1>Lista de Pokémon</h1>
-      {loading && <p>Cargando Pokémon...</p>}
+    <div style={{textAlign: "center"}}>    
       <Filter onFilterChange={handleFilterChange} />
+      {loading && <p>Cargando Pokémon...</p>}
       <PokemonList pokemonList={filteredPokemons} />
     </div>
   );
