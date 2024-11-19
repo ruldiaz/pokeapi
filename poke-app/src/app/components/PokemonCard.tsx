@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface PokemonCardProps {
   name: string;
@@ -46,7 +47,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, imageUrl, types, onClic
         textAlign: 'center',
       }}
     >
-      <img src={imageUrl} alt={name} style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
+      {/* Especificar width y height */}
+      <Image 
+        src={imageUrl} 
+        alt={name} 
+        width={100}  // Añadido width
+        height={100} // Añadido height
+        style={{ objectFit: 'contain' }} 
+      />
       <h2>{name}</h2>
       <p>Tipos: {types.join(', ')}</p>
     </div>

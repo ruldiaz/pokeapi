@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PokemonCard from './PokemonCard';
+import Image from 'next/image';
 
 interface PokemonDetails {
   name: string;
@@ -86,9 +87,12 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
 
             {/* Contenido del modal */}
             <div style={{ textAlign: 'center' }}>
-              <img
+              <Image
                 src={selectedPokemon.image}
                 alt={selectedPokemon.name}
+                width={200}  // Añadir width
+                height={200} // Añadir height
+                priority={true} // Opcional, si la imagen es crítica
                 style={{
                   width: '200px',
                   height: '200px',
@@ -102,7 +106,6 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
 
             {/* Barras de información de poderes */}
             <div style={{ marginTop: '1rem' }}>
-              {/* Simulando información de poderes */}
               {['Ataque', 'Defensa', 'Velocidad', 'Especial'].map((stat) => (
                 <div key={stat} style={{ marginBottom: '1rem' }}>
                   <strong>{stat}</strong>

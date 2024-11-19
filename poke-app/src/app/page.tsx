@@ -5,7 +5,8 @@ export default function Home(){
   <>
     <h1>Welcome to Poke Api</h1>  
     
-    <h2 style={{textAlign: "center"}}><Link href="/pokemon">Gotta Catch 'Em All</Link></h2>
+    <h2><Link href="/pokemon">Gotta Catch &apos;Em All</Link></h2>
+
   </>
     );
 }
