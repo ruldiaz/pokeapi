@@ -1,4 +1,3 @@
-// src/app/components/PreferencesMenu.tsx
 import { useEffect, useState } from 'react';
 import { getUserRolePreferences } from '../services/configService';
 

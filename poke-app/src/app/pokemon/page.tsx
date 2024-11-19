@@ -1,5 +1,3 @@
-// src/app/pokemon/page.tsx
-
 "use client";
 
 import { useState, useEffect } from 'react';

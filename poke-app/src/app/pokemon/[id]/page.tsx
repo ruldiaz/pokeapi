@@ -1,5 +1,3 @@
-// src/app/pokemon/[id]/page.tsx
-
 import { getPokemonDetails } from '../../services/apiService';
 import './PokemonDetailPage.css';
 

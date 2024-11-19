@@ -1,5 +1,3 @@
-// src/app/services/apiService.ts
-
 import axios from 'axios';
 
 // Función para obtener la lista de Pokémon
