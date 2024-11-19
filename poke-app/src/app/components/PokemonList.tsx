@@ -21,15 +21,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
 
   return (
     <>
-      <div
-        className="pokemon-list"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1.5rem',
-          padding: '1rem',
-        }}
-      >
+      <div className="pokemon-list">
         {pokemonList.map((pokemon) => (
           <PokemonCard
             key={pokemon.name}

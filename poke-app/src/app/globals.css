@@ -13,6 +13,7 @@ body {
   background-color: #fce47c;
   color: #333;
   padding: 16px;
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
 /* Contenedor principal */
@@ -38,6 +39,8 @@ h1 {
   padding: 16px;
   text-align: center;
   transition: transform 0.3s ease;
+  width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible */
+  max-width: 200px; /* Establece un ancho máximo */
 }
 
 .pokemon-card:hover {
@@ -70,7 +73,6 @@ h1 {
   padding: 16px;
 }
 
-
 /* Estilos para el filtro */
 .filter-container {
   display: flex;
@@ -91,15 +93,39 @@ h1 {
 }
 
 /* Responsividad */
+@media (max-width: 1024px) {
+  .pokemon-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila en pantallas medianas */
+    gap: 16px;
+  }
+
+  .pokemon-card {
+    max-width: 180px; /* Reduce el tamaño máximo de la tarjeta en pantallas medianas */
+  }
+}
+
 @media (max-width: 768px) {
   .pokemon-list {
     grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila en pantallas más pequeñas */
     gap: 16px;
+  }
+
+  .pokemon-card {
+    max-width: 160px; /* Ajusta aún más el tamaño de la tarjeta */
   }
 }
 
 @media (max-width: 480px) {
   .pokemon-list {
     grid-template-columns: 1fr; /* 1 tarjeta por fila en pantallas muy pequeñas */
+    gap: 12px;
+  }
+
+  .pokemon-card {
+    max-width: 140px; /* Ajusta el tamaño de las tarjetas en pantallas muy pequeñas */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Reduce el tamaño del título en pantallas pequeñas */
   }
 }
