@@ -32,15 +32,15 @@ const PokemonPage = () => {
     const fetchPokemonData = async () => {
       setLoading(true);
       try {
-        const data: any = await getPokemonList(); // Obtener la lista de Pokémon
-        const details: any = await Promise.all(
+        const data = await getPokemonList(); // Obtener la lista de Pokémon
+        const details = await Promise.all(
           data.results.map(async (pokemon: Pokemon) => {
             // Verificar que la URL del Pokémon esté presente
             if (pokemon.url) {
               const details = await getPokemonDetails(pokemon.url); // Obtener detalles del Pokémon
               return {
                 name: pokemon.name,
-                types: details.types.map((type: any) => type.type.name),
+                types: details.types.map((type: { type: { name: string } }) => type.type.name),
                 image: details.sprites.other.dream_world.front_default,
               };
             } else {

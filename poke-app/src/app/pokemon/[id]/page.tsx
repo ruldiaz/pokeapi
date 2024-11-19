@@ -22,23 +22,19 @@ async function getPokemonDetails(url: string): Promise<PokemonDetails> {
   return response.json();
 }
 
-interface Params {
-  id: string;
-}
-
-export default async function PokemonDetailPage({
-  params,
-}: {
-  params: Params;
-}) {
-  const { id } = params; // Asegurarse de resolver el parámetro `params`
+export default async function PokemonDetailPage(
+  props: { params: Promise<{ id: string }> } // Recibimos los parámetros como una promesa
+) {
+  // Esperamos a que se resuelva la promesa para obtener el ID
+  const params = await props.params;
+  const { id } = params; // Ahora tenemos el id
 
   const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
   let pokemon: PokemonDetails;
 
   try {
     pokemon = await getPokemonDetails(pokemonUrl);
-  } catch (error) {
+  } catch {
     return <div>Error al cargar los datos del Pokémon.</div>;
   }
 
