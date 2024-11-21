@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PokemonCard from './PokemonCard';
 import Image from 'next/image';
+import LightningEffect from './LightningEffect'; // Importa el efecto de rayo
 
 interface PokemonDetails {
   name: string;
@@ -82,7 +83,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
               <Image
                 src={selectedPokemon.image}
                 alt={selectedPokemon.name}
-                width={200}  // Añadir width
+                width={200} // Añadir width
                 height={200} // Añadir height
                 priority={true} // Opcional, si la imagen es crítica
                 style={{
@@ -125,6 +126,9 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
           </div>
         </div>
       )}
+
+      {/* Efecto de Rayo */}
+      <LightningEffect />
     </>
   );
 };
