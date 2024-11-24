@@ -87,6 +87,7 @@ const PokemonList: React.FC<PokemonListProps> = ({ pokemonList }) => {
                 height={200} // Añadir height
                 priority={true} // Opcional, si la imagen es crítica
                 style={{
+                  margin: '0 auto',
                   width: '200px',
                   height: '200px',
                   objectFit: 'contain',
