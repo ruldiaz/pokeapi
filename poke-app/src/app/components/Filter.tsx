@@ -25,7 +25,8 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         placeholder="Filter by name"
         value={nameFilter}
         onChange={handleNameChange}
-        style={{padding:"10px"}}
+        className='m-1'
+        style={{padding:"8px"}}
       />
       <select value={typeFilter} onChange={handleTypeChange} style={{padding:"10px"}}>
         <option value="">All types</option>

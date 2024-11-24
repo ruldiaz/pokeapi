@@ -1,4 +1,9 @@
 /* Reset de estilos básicos */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *,
 *::before,
 *::after {
